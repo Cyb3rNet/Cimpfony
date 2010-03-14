@@ -1,6 +1,6 @@
->> Cimpfo by Serafim Junior Dos Santos Fagundes Cyb3r Network
+>> Cimpfony by Serafim Junior Dos Santos Fagundes Cyb3r Network
 >>
->> 37signals's Campfire API Service Library in PHP 5
+>> An API Service Library in PHP 5 for 37signals's Campfire Chatroom Web Application
 >> 
 >> MIT License
 >>
