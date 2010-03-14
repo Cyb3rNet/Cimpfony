@@ -1,0 +1,8 @@
+0.0
+	Initial packaging of Cimpfony
+	Can:
+		* Show rooms
+		* equest room users
+		* Speak to rooms
+	To do:
+		* Curl classes needs to return status code
