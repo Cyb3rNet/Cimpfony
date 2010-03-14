@@ -1,16 +1,39 @@
 <?php
 
 
-////
-//// CLASS - BASE CURL
-////
-//
+/**
+ *	The Curl classes
+ *
+ *	This file contains the classes that wraps the Curl connection calls.
+ *
+ *	@author Serafim Junior Dos Santos Fagundes <serafim@cyb3r.ca>
+ *	@copyright Copyright (c) 2010 Serafim Junior Dos Santos Fagundes Cyb3r Networks
+ *	@license MIT License
+ *
+ *	@package Connections
+ */
+ 
+ 
+/**
+ *	Creates an instanciation of the Curl GET requester
+ */
 class CCurlBaseGet
 {
+	/**
+	 *	@todo To document
+	 */
 	protected $_ch;
 	
+
+	/**
+	 *	@todo To document
+	 */
 	private $_sURL;
 
+
+	/**
+	 *	@todo To document
+	 */
 	public function __construct($sURL)
 	{
 		$this->_ch = curl_init();
@@ -18,17 +41,29 @@ class CCurlBaseGet
 		$this->_sURL = $sURL;
 	}
 
+
+	/**
+	 *	@todo To document
+	 */
 	public function __destruct()
 	{
 		//closing the curl
 		curl_close($this->_ch);
 	}
 	
+
+	/**
+	 *	@todo To document
+	 */
 	public function PrepareOptions()
 	{
 		curl_setopt($this->_ch, CURLOPT_URL, $this->_sURL);
 	}
 
+
+	/**
+	 *	@todo To document
+	 */
 	public function Execute()
 	{
 		//getting response from server
@@ -41,17 +76,32 @@ class CCurlBaseGet
 }
 
 
-////
-//// CLASS - CURL POST-AUTH
-////
-//
+/**
+ *	Creates an instance of a GET Curl request authentificator
+ */
 class CCurlPostAuth extends CCurlBaseGet
 {
+	/**
+	 *	@todo To document
+	 */
 	private $_sUserName;
+
+
+	/**
+	 *	@todo To document
+	 */
 	private $_sPassword;
 	
+
+	/**
+	 *	@todo To document
+	 */
 	private $_sPost;
 
+
+	/**
+	 *	@todo To document
+	 */
 	public function __construct($sURL, $sUser, $sPwd)
 	{
 		parent::__construct($sURL);
@@ -62,6 +112,10 @@ class CCurlPostAuth extends CCurlBaseGet
 		$this->_sPost = "";
 	}
 
+
+	/**
+	 *	@todo To document
+	 */
 	public function PrepareOptions()
 	{
 		parent::PrepareOptions();
@@ -79,11 +133,19 @@ class CCurlPostAuth extends CCurlBaseGet
 		curl_setopt($this->_ch, CURLOPT_POST, true);
 	}
 	
+
+	/**
+	 *	@todo To document
+	 */
 	public function SetPostString($sPost)
 	{
 		$this->_sPost = $sPost;
 	}
 
+
+	/**
+	 *	@todo To document
+	 */
 	public function Execute()
 	{
 		curl_setopt($this->_ch, CURLOPT_POSTFIELDS, $this->_sPost);
@@ -93,15 +155,26 @@ class CCurlPostAuth extends CCurlBaseGet
 }
 
 
-////
-//// CLASS - CURL GET-AUTH
-////
-//
+/**
+ *	Creates an instance of a GET Curl request authentificator
+ */
 class CCurlGetAuth extends CCurlBaseGet
 {
+	/**
+	 *	@todo To document
+	 */
 	private $_sUserName;
+
+
+	/**
+	 *	@todo To document
+	 */
 	private $_sPassword;
 
+
+	/**
+	 *	@todo To document
+	 */
 	public function __construct($sURL, $sUser, $sPwd)
 	{
 		parent::__construct($sURL);
@@ -110,6 +183,10 @@ class CCurlGetAuth extends CCurlBaseGet
 		$this->_sPassword = $sPwd;
 	}
 
+
+	/**
+	 *	@todo To document
+	 */
 	public function PrepareOptions()
 	{
 		parent::PrepareOptions();
