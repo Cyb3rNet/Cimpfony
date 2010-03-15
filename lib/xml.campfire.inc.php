@@ -154,7 +154,7 @@ class CCampfireXMLMessage extends CXMLObject
 
 	
 	/**
-	 *	@var string Message type
+	 *	@var string Message type defining a sound message
 	 */
 	const sMsgTypeSoundMsg = 'SoundMessage';
 
